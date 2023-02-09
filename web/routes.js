@@ -1,12 +1,17 @@
 const express = require("express")
-const router = express.Router()
 const {
     render401,
     renderActivate,
     renderAdmin,
     renderAdminLogin,
     renderFound
-} = require('../handlers/views')
+} = require('./handlers/viewHandlers')
+const redirectHandler = require('./handlers/redirect')
+
+const router = express.Router({mergeParams: true})
+
+// redirect based on activation status of tag
+router.get('/redirect/:tagid', redirectHandler)
 
 router.get('/401', render401)
 

@@ -3,25 +3,25 @@
 // GET one qrTagScan -- accept ID param, find in db, return single qrScanId
 // PUT qrTagScan  -- accept ID param, update in db, return ID
 const createQrTagScan = (req, res) => {
-
+    res.send({route: "create qr tag scna route"})
 }
 
 const getAllQrTagScans = (req, res) => {
-
+    res.send({route: "create qr tag scna route"})
 }
 
-const getQrTagById = (req, res) => {
-
+const getQrTagScanById = (req, res) => {
+    res.send({route: "create qr tag scna route"})
 }
 
-const updateQrTagById = (req, res) => {
-
+const updateQrTagScanById = (req, res) => {
+    res.send({route: "create qr tag scna route"})
 }
 
 module.exports = {
     createQrTagScan,
     getAllQrTagScans,
-    getQrTagById,
-    updateQrTagById
+    getQrTagScanById,
+    updateQrTagScanById
 }
 
