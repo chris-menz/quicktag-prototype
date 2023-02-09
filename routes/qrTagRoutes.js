@@ -1,5 +1,7 @@
-// POST given body return ID
-// GET all tags
-// GET one tag given ID
-// PUT tag given ID - update activation status
-// PUT tag given ID - change owner
+const express = require("express")
+const router = express.Router()
+
+router.post("/", createQrTag)
+router.get("/", getAllQrTags)
+router.get("/:tagid", getQrTagById)
+router.put("/:tagid", updateQrTagById)
