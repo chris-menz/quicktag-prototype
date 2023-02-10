@@ -1,12 +1,12 @@
 const express = require("express")
 
-const qrTagRoutes = require("./routes/qrTagRoutes")
-const qrTagScanRoutes = require("./routes/qrTagScanRoutes")
+const qrCodeRoutes = require("./routes/qrCodeRoutes")
+const qrCodeScanRoutes = require("./routes/qrCodeScanRoutes")
 
 const app = express()
 const port = 8080
 
-app.use("/qrTag", qrTagRoutes)
-app.use("/qrTagScan", qrTagScanRoutes)
+app.use("/qrCode", qrCodeRoutes)
+app.use("/qrCodeScan", qrCodeScanRoutes)
 
 app.listen(port)

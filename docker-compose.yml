@@ -4,10 +4,12 @@ services:
     build:
       context: web
     ports: 
-      - "5001:5001"
+      - "5001:80"
     volumes:
       - ./web:/usr/src/app/
       - /usr/src/app/node_modules
+    networks:
+      - frontend
 
   app:
     build:
@@ -20,21 +22,24 @@ services:
       - ./app:/usr/src/app/
       - /usr/src/app/node_modules
     networks:
-      - postgres
+      - frontend
+      - backend
 
   postgres:
     image: postgres:14.1-alpine
     restart: always
+    ports:
+      # Standard port for PostgreSQL databases
+      - "5432:5432"
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=root
-    ports:
-      - "5432:5432"
     volumes:
       - ./database-seed.sql:/docker-entrypoint-initdb.d/database-seed.sql
     networks:
-      - postgres
+      - backend
+
 
   # backup:
   #   # TODO configure
@@ -55,5 +60,7 @@ services:
 
 
 networks:
-  postgres:
+  frontend:
+    driver: bridge
+  backend:
     driver: bridge

@@ -14,13 +14,13 @@ const renderAdmin = (req, res) => {
 
 const renderActivate = (req, res) => {
     res.render('activate', {
-        tagId: req.params.tagid
+        tagId: req.params.qrcodeid
     })
 }
 
 const renderFound = (req, res) => {
     res.render('founditem', {
-        tagId: req.params.tagid
+        tagId: req.params.qrcodeid
     })
 }
 
